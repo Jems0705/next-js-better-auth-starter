@@ -1,0 +1,21 @@
+import { mutationOptions } from "@tanstack/react-query";
+import { signIn, signOut, signUp } from "../actions/auth.action";
+import { MutationKeys } from "./keys";
+
+export const authMutationOptions = {
+    signIn: () =>
+        mutationOptions({
+            mutationKey: MutationKeys.SIGN_IN,
+            mutationFn: signIn,
+        }),
+    signUp: () =>
+        mutationOptions({
+            mutationKey: MutationKeys.SIGN_UP,
+            mutationFn: signUp,
+        }),
+    signOut: () =>
+        mutationOptions({
+            mutationKey: MutationKeys.SIGN_OUT,
+            mutationFn: signOut,
+        }),
+};
