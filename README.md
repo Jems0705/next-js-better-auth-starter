@@ -3,6 +3,7 @@
 A production-ready **starter template** for integrating [Better Auth](https://better-auth.com) with **Next.js**, featuring:
 
 - **Email & Password Authentication**
+- **Email Sending with Resend**
 - **Google OAuth Sign-In**
 - **PostgreSQL (Neon) Integration** with Drizzle ORM
 - **UI Components** with [shadcn/ui](https://ui.shadcn.com)
@@ -13,61 +14,70 @@ A production-ready **starter template** for integrating [Better Auth](https://be
 
 ## 📦 Tech Stack
 
-| Tech                         | Purpose |
-|------------------------------|---------|
-| **Next.js 15**               | Full-stack React framework |
-| **Better Auth**              | Authentication library |
-| **Drizzle ORM**              | Type-safe database queries |
-| **PostgreSQL (Neon)**        | Cloud-hosted database |
-| **shadcn/ui**                | UI components |
-| **React Hook Form**          | Form state management |
-| **Zod**                      | Schema validation |
+| Tech                  | Purpose                    |
+| --------------------- | -------------------------- |
+| **Next.js 15**        | Full-stack React framework |
+| **Better Auth**       | Authentication library     |
+| **Drizzle ORM**       | Type-safe database queries |
+| **PostgreSQL (Neon)** | Cloud-hosted database      |
+| **shadcn/ui**         | UI components              |
+| **React Hook Form**   | Form state management      |
+| **Zod**               | Schema validation          |
+| **Resend**            | Email Sending              |
 
 ---
 
 ## ⚙️ Features
 
-✅ Email & password sign-in/sign-up  
+✅ Email & password sign-in/sign-up/request-password-reset/reset-password  
 ✅ Google OAuth authentication  
 ✅ Server-side session handling  
 ✅ Typed API responses  
 ✅ Organized file structure for scalability  
 ✅ Environment variable-based configuration  
-✅ Ready-to-use database migrations  
+✅ Ready-to-use database migrations
 
 ---
-
-## 📂 Project Structure
 
 ## 🚀 Getting Started
 
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone https://github.com/Jems0705/next-js-better-auth-starter.git
 cd next-js-better-auth-starter
 ```
 
 ### 2️⃣ Install dependencies
+
 Create a .env file in the root directory and add:
+
 ```bash
 npm install
 ```
 
 3️⃣ Set up environment variables
+
 ```bash
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
 # Better Auth
-BETTER_AUTH_SECRET=your_secret_key
-BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_SECRET="your_better_auth_secret_key"
+BETTER_AUTH_URL=http://localhost:3000 #Base URL of your app
 
 # Database (Neon)
-DATABASE_URL=postgresql://user:password@neon_host/db_name
+DATABASE_URL="your_database_url"
 
-# Google OAuth
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
+# Google
+GOOGLE_CLIENT_ID="your_google_client_id"
+GOOGLE_CLIENT_SECRET="your_google_client_secret_key"
+
+# Resend
+RESEND_API_KEY="your_resend_api_key"
 ```
 
 4️⃣ Run database migrations
+
 ```bash
 npx drizzle-kit generate
 npx drizzle-kit push
@@ -81,4 +91,3 @@ npm run dev
 
 App will be available at:
 ➡️ [http://localhost:3000](http://localhost:3000)
-

@@ -84,6 +84,73 @@ export const signOut = async () => {
     };
 };
 
+export const requestPasswordReset = async (email: string) => {
+    const res = await auth.api.requestPasswordReset({
+        body: {
+            email,
+            redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/reset-password`,
+        },
+        asResponse: true,
+    });
+
+    if (!res.ok) {
+        const errorData: {
+            code: string;
+            message: string;
+        } = await res.json();
+
+        return {
+            success: false,
+            message: errorData.message,
+            code: errorData.code,
+        };
+    }
+
+    return {
+        success: true,
+        message: "Request password reset sent successfully.",
+    };
+};
+
+export const resetPassword = async ({
+    password,
+    token,
+}: {
+    password: string;
+    token: string | null;
+}) => {
+    if (!token) {
+        return {
+            success: false,
+            message: "No reset token found.",
+            code: "MISSING_RESET_TOKEN",
+        };
+    }
+
+    const res = await auth.api.resetPassword({
+        body: { newPassword: password, token },
+        asResponse: true,
+    });
+
+    if (!res.ok) {
+        const errorData: {
+            code: string;
+            message: string;
+        } = await res.json();
+
+        return {
+            success: false,
+            message: errorData.message,
+            code: errorData.code,
+        };
+    }
+
+    return {
+        success: true,
+        message: "Password has been change successfully.",
+    };
+};
+
 export const currentUser = async () => {
     try {
         const res = await auth.api.getSession({ headers: await headers() });

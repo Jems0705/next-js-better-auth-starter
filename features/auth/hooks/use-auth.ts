@@ -12,5 +12,15 @@ export const useAuth = () => {
         signOut: () => {
             return useMutation({ ...authMutationOptions.signOut() });
         },
+        requestPasswordReset: () => {
+            return useMutation({
+                ...authMutationOptions.requestPasswordReset(),
+            });
+        },
+        resetPassword: () => {
+            return useMutation({
+                ...authMutationOptions.resetPassword(),
+            });
+        },
     };
 };

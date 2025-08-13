@@ -13,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signInSchema } from "../schema/sign-in-schema";
 import { SignUpSchemaType } from "../types/auth-types";
 import {
     Form,
@@ -26,7 +25,6 @@ import {
 import { toast } from "sonner";
 import { useAuth } from "../hooks/use-auth";
 import { Loader2Icon } from "lucide-react";
-import { signInWithGoogle } from "@/lib/auth-client";
 import Link from "next/link";
 import { signUpSchema } from "../schema/sign-up-schema";
 import { useRouter } from "next/navigation";

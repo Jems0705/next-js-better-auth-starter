@@ -144,12 +144,12 @@ export function SignInForm({
                                                 </FormItem>
                                             )}
                                         />
-                                        <a
-                                            href="#"
+                                        <Link
+                                            href="/request-password-reset"
                                             className="ml-auto text-sm underline-offset-4 hover:underline"
                                         >
                                             Forgot your password?
-                                        </a>
+                                        </Link>
                                     </div>
 
                                     <Button

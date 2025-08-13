@@ -1,5 +1,11 @@
 import { mutationOptions } from "@tanstack/react-query";
-import { signIn, signOut, signUp } from "../actions/auth.action";
+import {
+    requestPasswordReset,
+    resetPassword,
+    signIn,
+    signOut,
+    signUp,
+} from "../actions/auth.action";
 import { MutationKeys } from "./keys";
 
 export const authMutationOptions = {
@@ -17,5 +23,15 @@ export const authMutationOptions = {
         mutationOptions({
             mutationKey: MutationKeys.SIGN_OUT,
             mutationFn: signOut,
+        }),
+    requestPasswordReset: () =>
+        mutationOptions({
+            mutationKey: MutationKeys.REQUEST_PASSWORD_RESET,
+            mutationFn: requestPasswordReset,
+        }),
+    resetPassword: () =>
+        mutationOptions({
+            mutationKey: MutationKeys.RESET_PASSWORD,
+            mutationFn: resetPassword,
         }),
 };

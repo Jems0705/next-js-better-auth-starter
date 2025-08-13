@@ -1,8 +1,8 @@
 import { GalleryVerticalEnd } from "lucide-react";
 
-import { SignUpForm } from "@/features/auth/components/sign-up-form";
+import { RequestPasswordResetForm } from "@/features/auth/components/request-password-reset-form";
 
-export default function SignUpPage() {
+export default function RequstPasswordResetPage() {
     return (
         <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
             <div className="flex w-full max-w-sm flex-col gap-6">
@@ -15,7 +15,7 @@ export default function SignUpPage() {
                     </div>
                     My Web App Inc.
                 </a>
-                <SignUpForm />
+                <RequestPasswordResetForm />
             </div>
         </div>
     );
